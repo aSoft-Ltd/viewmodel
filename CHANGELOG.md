@@ -2,13 +2,6 @@
 ## New Features
 - Added `VComponent` in viewmodel-react
 
-## Documentation
-- Update readme
-
-## Samples
-- Added samples
-
-
 # 0.0.1
 ## Availability
 - Published to maven central
