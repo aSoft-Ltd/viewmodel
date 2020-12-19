@@ -1,5 +1,5 @@
 object vers {
-    val kotlin = "1.4.20"
+    val kotlin = "1.4.21"
     val nexus_staging = "0.22.0"
 
     object kotlinx {
@@ -12,7 +12,7 @@ object vers {
     }
 
     object asoft {
-        val viewmodel = "0.0.1"
+        val viewmodel = "0.0.3"
         val logging = "0.0.1"
         val reakt = "0.0.7"
         val builders = "1.1.1"
