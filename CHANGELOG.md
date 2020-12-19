@@ -1,3 +1,10 @@
+# 0.0.3 : 2020.12.19
+## Updates
+- Updated to kotlin 1.4.21
+
+## Bug Fixes
+- Fixed (Provide proper logging info on JS check on JVM as well)[https://github.com/aSoft-Ltd/viewmodel/issues/4]
+
 # 0.0.2 : 2020.12.16
 ## New Features
 - Added `VComponent` in viewmodel-react
