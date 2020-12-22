@@ -14,15 +14,14 @@ abstract class VModel<in I, S>(initialState: S) : PlatformVModel(), CoroutineSco
     init {
         launch {
             ui.collectIndexed { index, value ->
-                logger.log("State ${if (index == 0) "begins at" else "changed to"} ${value?.toDetailedString}")
+                log("State ${if (index == 0) "begins at" else "changed to"} ${value?.toDetailedString}")
             }
         }
     }
 
-    fun post(i: I): Any {
-        logger.log("Sending Intent ${i?.toDetailedString}")
+    open fun post(i: I) {
+        logger.info("Sending Intent ${i?.toDetailedString}")
         execute(i)
-        return Unit
     }
 
     abstract fun execute(i: I): Any
