@@ -1,3 +1,6 @@
+# 0.0.4 : 2020.12.22
+- Changed signature of `post`  
+
 # 0.0.3 : 2020.12.19
 ## Updates
 - Updated to kotlin 1.4.21

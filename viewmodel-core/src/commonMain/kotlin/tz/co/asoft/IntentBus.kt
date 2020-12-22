@@ -12,11 +12,15 @@ import kotlinx.coroutines.launch
 open class IntentBus<I> : CoroutineScope by CoroutineScope(SupervisorJob()) {
     private val INTENT_BUS = MutableSharedFlow<I>(replay = 0)
 
-    fun post(i: I) = launch {
-        INTENT_BUS.emit(i)
+    fun post(i: I) {
+        launch {
+            INTENT_BUS.emit(i)
+        }
     }
 
-    suspend fun collect(collector: suspend (I) -> Unit) {
+    open suspend fun collect(collector: suspend (I) -> Unit) {
         INTENT_BUS.collect(collector)
     }
+
+    fun VModel<I, *>.observeIntentBus() = launch { collect { post(it) } }
 }

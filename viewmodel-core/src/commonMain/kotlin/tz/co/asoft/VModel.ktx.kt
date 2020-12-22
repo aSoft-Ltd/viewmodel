@@ -7,3 +7,9 @@ internal val <T : Any> T.toDetailedString: String
         "$this".contains("${'$'}Intent${'$'}") -> this::class.simpleName ?: "Unknown"
         else -> toString()
     }
+
+internal fun VModel<*, *>.log(msg: String) = when {
+    msg.contains("fail", ignoreCase = true) -> logger.failure(msg)
+    msg.contains("error", ignoreCase = true) -> logger.error(msg)
+    else -> logger.info(msg)
+}
