@@ -32,6 +32,9 @@ jobs:
       - name: Publishing viewmodel-core
         run: ./gradlew :viewmodel-core:publish
         working-directory: .
+      - name: Publishing viewmodel-test
+        run: ./gradlew :viewmodel-test:publish
+        working-directory: .
       - name: Publishing viewmodel-react
         run: ./gradlew :viewmodel-react:publish
         working-directory: .
