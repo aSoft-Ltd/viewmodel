@@ -1,16 +1,17 @@
 plugins {
-    kotlin("js")
+    id("com.android.library")
+    kotlin("multiplatform")
     id("tz.co.asoft.library")
     id("io.codearte.nexus-staging")
     signing
 }
 
 kotlin {
-    js(IR) { browser() }
+    universalLib()
     sourceSets {
-        val main by getting {
+        val commonMain by getting {
             dependencies {
-                api(asoft("reakt-core", vers.asoft.reakt))
+                api(asoft("test", vers.asoft.test))
                 api(project(":viewmodel-core"))
             }
         }
@@ -19,5 +20,5 @@ kotlin {
 
 aSoftOSSLibrary(
     version = vers.asoft.viewmodel,
-    description = "A multiplatfrom library to handling viewmodel in an MVVMI architecture with kotlin/react"
+    description = "A multiplatfrom library to help test viewmodels"
 )

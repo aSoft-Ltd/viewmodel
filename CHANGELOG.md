@@ -1,3 +1,8 @@
+# 0.0.5 : 2020.12.25
+- Updated to reakt version 0.0.8
+- Added viewmodel-test artifact
+- Updated to builders version 1.2.0
+
 # 0.0.4 : 2020.12.22
 - Changed signature of `post`  
 

@@ -31,7 +31,7 @@ kotlin {
     }
 }
 
-aSoftLibrary(
+aSoftOSSLibrary(
     version = vers.asoft.viewmodel,
     description = "A multiplatfrom library to handling viewmodel in an MVVMI architecture"
 )
