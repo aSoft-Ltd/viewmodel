@@ -17,4 +17,5 @@ pluginManagement {
 
 rootProject.name = "viewmodel"
 include(":viewmodel-core")
+include(":viewmodel-test")
 include(":viewmodel-react")
