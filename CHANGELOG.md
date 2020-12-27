@@ -1,3 +1,10 @@
+# 0.0.60 : 2020.12.27
+- Added separated test artifacts
+- Added viewmodel-test-core artifact
+- Added viewmodel-test-expect artifact
+- Updated to builders version 1.2.0
+- made execute to be an extension of CoroutineScope
+
 # 0.0.5 : 2020.12.25
 - Updated to reakt version 0.0.8
 - Added viewmodel-test artifact

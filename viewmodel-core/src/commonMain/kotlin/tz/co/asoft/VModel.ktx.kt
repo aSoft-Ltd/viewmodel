@@ -8,8 +8,10 @@ internal val <T : Any> T.toDetailedString: String
         else -> toString()
     }
 
-internal fun VModel<*, *>.log(msg: String) = when {
-    msg.contains("fail", ignoreCase = true) -> logger.failure(msg)
+fun <I> VModel<I, *>.log(intent: I) = log("Sending Intent ${intent?.toDetailedString}")
+
+fun VModel<*, *>.log(msg: String) = when {
     msg.contains("error", ignoreCase = true) -> logger.error(msg)
+    msg.contains("fail", ignoreCase = true) -> logger.failure(msg)
     else -> logger.info(msg)
 }

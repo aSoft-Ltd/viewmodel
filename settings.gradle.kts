@@ -17,5 +17,9 @@ pluginManagement {
 
 rootProject.name = "viewmodel"
 include(":viewmodel-core")
-include(":viewmodel-test")
 include(":viewmodel-react")
+
+include(":viewmodel-test-core")
+project(":viewmodel-test-core").projectDir = File("viewmodel-test/viewmodel-test-core")
+include(":viewmodel-test-expect")
+project(":viewmodel-test-expect").projectDir = File("viewmodel-test/viewmodel-test-expect")

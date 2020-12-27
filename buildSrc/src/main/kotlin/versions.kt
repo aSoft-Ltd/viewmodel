@@ -11,10 +11,11 @@ object vers {
     }
 
     object asoft {
-        val viewmodel = "0.0.5"
+        val viewmodel = "0.0.60"
         val logging = "0.0.1"
         val reakt = "0.0.8"
         val builders = "1.2.0"
-        val test = "1.0.1"
+        val test = "1.1.0"
+        val duality = "0.0.21"
     }
 }
