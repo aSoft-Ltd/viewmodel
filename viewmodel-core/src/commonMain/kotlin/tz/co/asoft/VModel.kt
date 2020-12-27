@@ -17,9 +17,20 @@ abstract class VModel<in I, S>(initialState: S) : PlatformVModel() {
         }
     }
 
+    /**
+     * Will execute the provided intent on the viewmodel's scope
+     */
     open fun post(i: I) {
         log(i)
         coroutineScope.execute(i)
+    }
+
+    /**
+     * Will execute the provided intent on the calling scope
+     */
+    open fun CoroutineScope.start(i: I) {
+        log(i)
+        execute(i)
     }
 
     abstract fun CoroutineScope.execute(i: I): Any

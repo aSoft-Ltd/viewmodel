@@ -1,16 +1,9 @@
 package tz.co.asoft
 
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.coroutineScope
 import kotlin.test.assertEquals
 
-suspend fun <I, S> VModel<I, S>.test(intent: I) {
-    coroutineScope {
-        log(intent)
-        val job = execute(intent) as? Job
-        job?.join()
-    }
-}
+suspend inline fun <I, S> VModel<I, S>.test(intent: I) = coroutineScope { start(intent) }
 
 suspend fun <I, S> VModel<I, S>.test(intent: I, toHave: S) {
     test(intent)

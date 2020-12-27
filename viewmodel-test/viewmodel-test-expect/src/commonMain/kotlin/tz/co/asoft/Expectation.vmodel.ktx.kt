@@ -15,9 +15,7 @@ inline fun <reified E> Expectation<VModel<*, *>>.toBeIn(): E {
         ==================================
         
         """.trimIndent()
-    ) {
-        state is E
-    }
+    ) { state is E }
     return state as E
 }
 
