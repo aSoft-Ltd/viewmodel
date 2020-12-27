@@ -11,8 +11,8 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(asoft("test", vers.asoft.test))
-                api(project(":viewmodel-core"))
+                api(asoft("either-test-expect", vers.asoft.duality))
+                api(project(":viewmodel-test-core"))
             }
         }
     }

@@ -9,11 +9,12 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.launch
 
-open class IntentBus<I> : CoroutineScope by CoroutineScope(SupervisorJob()) {
+open class IntentBus<I> {
     private val INTENT_BUS = MutableSharedFlow<I>(replay = 0)
+    val coroutineScope = CoroutineScope(SupervisorJob())
 
     fun post(i: I) {
-        launch {
+        coroutineScope.launch {
             INTENT_BUS.emit(i)
         }
     }
@@ -22,5 +23,5 @@ open class IntentBus<I> : CoroutineScope by CoroutineScope(SupervisorJob()) {
         INTENT_BUS.collect(collector)
     }
 
-    fun VModel<I, *>.observeIntentBus() = launch { collect { post(it) } }
+    fun VModel<I, *>.observeIntentBus() = coroutineScope.launch { collect { post(it) } }
 }

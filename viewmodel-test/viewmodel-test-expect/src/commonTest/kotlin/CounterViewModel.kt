@@ -1,11 +1,12 @@
 import CounterViewModel.Intent
 import CounterViewModel.State
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import tz.co.asoft.IntentBus
 import tz.co.asoft.VModel
 
-class CounterViewModel : VModel<Intent, State>(State(0)) {
+class CounterViewModel(val delay: Long) : VModel<Intent, State>(State(0)) {
 
     companion object : IntentBus<Intent>()
 
@@ -23,7 +24,17 @@ class CounterViewModel : VModel<Intent, State>(State(0)) {
     val countState get() = ui.value.value
 
     override fun CoroutineScope.execute(i: Intent) = when (i) {
-        is Intent.CountUp -> ui.value = State(value = ui.value.value + i.by)
-        is Intent.CountDown -> ui.value = State(value = ui.value.value - i.by)
+        is Intent.CountUp -> countUp(i)
+        is Intent.CountDown -> countDown(i)
+    }
+
+    private fun CoroutineScope.countDown(i: Intent.CountDown) = launch {
+        delay(delay)
+        ui.value = State(value = ui.value.value - i.by)
+    }
+
+    private fun CoroutineScope.countUp(i: Intent.CountUp) = launch {
+        delay(delay)
+        ui.value = State(value = ui.value.value + i.by)
     }
 }
