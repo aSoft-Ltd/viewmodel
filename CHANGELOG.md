@@ -1,3 +1,6 @@
+# 0.0.62 : 2021.01.08
+- Removed `@JsExport` from `VComponent` 
+
 # 0.0.61 : 2021.01.08
 - Updated to buidlers version 1.3.0
 - Updated and made compatible to reakt 0.0.90
