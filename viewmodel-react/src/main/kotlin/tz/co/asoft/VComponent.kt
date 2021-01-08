@@ -7,20 +7,24 @@ import react.RState
 import react.setState
 import tz.co.asoft.VComponent.UIState
 
+@JsExport
 abstract class VComponent<P : RProps, I, S, V : VModel<I, S>> : Component<P, UIState<S>> {
     abstract val viewModel: V
 
     class UIState<S>(var ui: S?) : RState
 
+    @JsName("Component")
     constructor() : super()
 
+    @JsName("PComponent")
     constructor(props: P) : super(props)
 
     init {
         state = UIState(null)
     }
 
-    abstract fun RBuilder.render(ui: S): Any
+    @JsName("build")
+    abstract fun RBuilder.render(ui: S): dynamic
 
     override fun RBuilder.render() {
         state.ui?.let { render(it) }

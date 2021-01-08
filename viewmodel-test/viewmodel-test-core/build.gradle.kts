@@ -1,5 +1,4 @@
 plugins {
-    id("com.android.library")
     kotlin("multiplatform")
     id("tz.co.asoft.library")
     id("io.codearte.nexus-staging")
@@ -7,7 +6,7 @@ plugins {
 }
 
 kotlin {
-    universalLib()
+    multiplatformLib()
     sourceSets {
         val commonMain by getting {
             dependencies {
