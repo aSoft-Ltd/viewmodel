@@ -6,7 +6,7 @@ plugins {
 }
 
 kotlin {
-    js(IR) { browser() }
+    js(IR) { library() }
     sourceSets {
         val main by getting {
             dependencies {

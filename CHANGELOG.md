@@ -1,3 +1,8 @@
+# 0.0.61 : 2021.01.08
+- Updated to buidlers version 1.3.0
+- Updated and made compatible to reakt 0.0.90
+- Provided android support from jvm artifacts in `viewmodel-test-core` & `viewmodel-test-expect`
+
 # 0.0.60 : 2020.12.27
 - Added separated test artifacts
 - Added viewmodel-test-core artifact
