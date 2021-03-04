@@ -5,8 +5,7 @@ import TodoViewModel.State
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import tz.co.asoft.IntentBus
-import tz.co.asoft.VModel
+import viewmodel.VModel
 
 class TodoViewModel : VModel<Intent, State>(State.Init) {
 

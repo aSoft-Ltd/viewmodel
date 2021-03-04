@@ -1,3 +1,3 @@
-package tz.co.asoft
+package viewmodel
 
 expect abstract class PlatformVModel()

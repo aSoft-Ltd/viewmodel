@@ -1,8 +1,9 @@
-package tz.co.asoft
+package viewmodel
 
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collectIndexed
+import logging.logger
 
 abstract class VModel<in I, S>(initialState: S) : PlatformVModel() {
     internal val logger = logger(this::class.simpleName ?: "Anonymous ViewModel")
