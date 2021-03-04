@@ -3,7 +3,7 @@ import CounterViewModel.State
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import tz.co.asoft.asyncTest
-import tz.co.asoft.test
+import viewmodel.test
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.time.ExperimentalTime

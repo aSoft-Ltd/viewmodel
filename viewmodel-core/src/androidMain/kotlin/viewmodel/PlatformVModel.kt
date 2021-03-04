@@ -1,3 +1,3 @@
-package tz.co.asoft
+package viewmodel
 
 actual typealias PlatformVModel = androidx.lifecycle.ViewModel

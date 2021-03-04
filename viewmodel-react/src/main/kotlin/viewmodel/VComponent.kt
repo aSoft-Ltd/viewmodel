@@ -1,11 +1,12 @@
-package tz.co.asoft
+package viewmodel
 
 import kotlinx.coroutines.flow.Flow
 import react.RBuilder
 import react.RProps
 import react.RState
 import react.setState
-import tz.co.asoft.VComponent.UIState
+import tz.co.asoft.Component
+import viewmodel.VComponent.UIState
 
 abstract class VComponent<P : RProps, I, S, V : VModel<I, S>> : Component<P, UIState<S>> {
     abstract val viewModel: V

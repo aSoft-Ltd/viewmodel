@@ -1,4 +1,6 @@
-package tz.co.asoft
+package viewmodel
+
+import logging.*
 
 internal val <T : Any> T.toDetailedString: String
     get() = when {
