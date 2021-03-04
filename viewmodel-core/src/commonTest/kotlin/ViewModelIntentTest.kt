@@ -1,8 +1,7 @@
 import CounterViewModel.Intent
 import kotlinx.coroutines.delay
-import tz.co.asoft.ConsoleAppender
-import tz.co.asoft.Logging
-import tz.co.asoft.VModel
+import logging.*
+import viewmodel.VModel
 import tz.co.asoft.asyncTest
 import kotlin.test.Test
 import kotlin.test.assertEquals

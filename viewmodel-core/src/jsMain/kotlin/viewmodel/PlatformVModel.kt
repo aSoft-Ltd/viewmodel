@@ -1,3 +1,3 @@
-package tz.co.asoft
+package viewmodel
 
 actual abstract class PlatformVModel actual constructor()

@@ -1,6 +1,7 @@
-package tz.co.asoft
+package viewmodel
 
 import react.useMemo
+import tz.co.asoft.asState
 import kotlin.reflect.KProperty
 
 fun <V : VModel<*, *>> useViewModel(builder: () -> V): V = useMemo(builder, arrayOf())

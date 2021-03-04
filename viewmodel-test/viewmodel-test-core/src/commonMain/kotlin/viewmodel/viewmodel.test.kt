@@ -1,4 +1,4 @@
-package tz.co.asoft
+package viewmodel
 
 import kotlinx.coroutines.coroutineScope
 import kotlin.test.assertEquals

@@ -1,9 +1,8 @@
 import CounterViewModel.Intent
 import CounterViewModel.State
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
-import tz.co.asoft.IntentBus
-import tz.co.asoft.VModel
+import viewmodel.IntentBus
+import viewmodel.VModel
 
 class CounterViewModel : VModel<Intent, State>(State(0)) {
 
