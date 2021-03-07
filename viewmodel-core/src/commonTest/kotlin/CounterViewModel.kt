@@ -2,9 +2,9 @@ import CounterViewModel.Intent
 import CounterViewModel.State
 import kotlinx.coroutines.CoroutineScope
 import viewmodel.IntentBus
-import viewmodel.VModel
+import viewmodel.ViewModel
 
-class CounterViewModel : VModel<Intent, State>(State(0)) {
+class CounterViewModel : ViewModel<Intent, State>(State(0)) {
 
     companion object : IntentBus<Intent>()
 
@@ -19,10 +19,10 @@ class CounterViewModel : VModel<Intent, State>(State(0)) {
         data class CountDown(val by: Int) : Intent()
     }
 
-    val countState get() = ui.value.value
+    val countState get() = state.value.value
 
     override fun CoroutineScope.execute(i: Intent) = when (i) {
-        is Intent.CountUp -> ui.value = State(value = ui.value.value + i.by)
-        is Intent.CountDown -> ui.value = State(value = ui.value.value - i.by)
+        is Intent.CountUp -> state.value = State(value = state.value.value + i.by)
+        is Intent.CountDown -> state.value = State(value = state.value.value - i.by)
     }
 }

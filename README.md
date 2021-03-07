@@ -1,9 +1,11 @@
 # ViewModel
+
 ![badge][badge-maven] ![badge][badge-mpp] ![badge][badge-android] ![badge][badge-js] ![badge][badge-jvm]
 
 A kotlin multiplatform solution to logging
 
 ## Samples
+
 ```kotlin
 class CounterViewModel : VModel<Intent, State>(State(0)) {
 
@@ -21,16 +23,22 @@ class CounterViewModel : VModel<Intent, State>(State(0)) {
 }
 ```
 
-## Setup: Gradle 
+## Setup: Gradle
+
 ```kotlin
 dependencies {
-    implementation("tz.co.asoft:viewmodel-core:0.0.1") //
+    implementation("tz.co.asoft:viewmodel-core:0.0.70") //
     // or
-    implementation("tz.co.asoft:viewmodel-react:0.0.1") // if using intended to be used in kotlin/react 
+    implementation("tz.co.asoft:viewmodel-react:0.0.70") // if using intended to be used in kotlin/react 
 }
 ```
-[badge-maven]: https://img.shields.io/maven-central/v/tz.co.asoft/test/1.0.1?style=flat
+
+[badge-maven]: https://img.shields.io/maven-central/v/tz.co.asoft/viewmodel-core/0.0.70?style=flat
+
 [badge-mpp]: https://img.shields.io/badge/kotlin-multiplatform-blue?style=flat
+
 [badge-android]: http://img.shields.io/badge/platform-android-brightgreen.svg?style=flat
+
 [badge-js]: http://img.shields.io/badge/platform-js-yellow.svg?style=flat
+
 [badge-jvm]: http://img.shields.io/badge/platform-jvm-orange.svg?style=flat

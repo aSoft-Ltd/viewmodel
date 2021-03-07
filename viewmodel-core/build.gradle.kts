@@ -12,13 +12,14 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-core:${vers.kotlinx.coroutines}")
-                api(asoft("logging-console",vers.asoft.logging))
+                api(asoft("logging-console", vers.asoft.logging))
+                api(asoft("live-core", vers.asoft.live))
             }
         }
 
         val commonTest by getting {
             dependencies {
-                api(asoft("test-coroutines",vers.asoft.test))
+                api(asoft("test-coroutines", vers.asoft.test))
             }
         }
 
