@@ -1,3 +1,8 @@
+# 0.0.80 : 2021.02.07
+
+- Changed VModel to ViewModel
+- Dropped StateFlow in favor of Live
+
 # 0.0.70 : 2021.02.04
 
 - changed package name from `tz.co.asoft` to `viewmodel`

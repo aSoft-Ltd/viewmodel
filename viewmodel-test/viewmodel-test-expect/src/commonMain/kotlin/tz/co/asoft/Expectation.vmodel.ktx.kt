@@ -1,13 +1,13 @@
 package tz.co.asoft
 
-import viewmodel.VModel
+import viewmodel.ViewModel
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-fun <S> Expectation<VModel<*, S>>.toBeIn(expectedState: S) = assertEquals(expectedState, value.ui.value)
+fun <S> Expectation<ViewModel<*, S>>.toBeIn(expectedState: S) = assertEquals(expectedState, value.state.value)
 
-inline fun <reified E> Expectation<VModel<*, *>>.toBeIn(): E {
-    val state = value.ui.value
+inline fun <reified E> Expectation<ViewModel<*, *>>.toBeIn(): E {
+    val state = value.state.value
     assertTrue(
         """
             
@@ -20,8 +20,8 @@ inline fun <reified E> Expectation<VModel<*, *>>.toBeIn(): E {
     return state as E
 }
 
-inline fun <reified L, reified R> Expectation<VModel<*, *>>.toBeInEither(): Either<L, R> {
-    val state = value.ui.value
+inline fun <reified L, reified R> Expectation<ViewModel<*, *>>.toBeInEither(): Either<L, R> {
+    val state = value.state.value
     assertTrue(
         """
     

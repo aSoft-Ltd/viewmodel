@@ -5,9 +5,9 @@ import TodoViewModel.State
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import viewmodel.VModel
+import viewmodel.ViewModel
 
-class TodoViewModel : VModel<Intent, State>(State.Init) {
+class TodoViewModel : ViewModel<Intent, State>(State.Init) {
 
     sealed class State {
         object Init : State()
@@ -21,7 +21,7 @@ class TodoViewModel : VModel<Intent, State>(State.Init) {
 
     override fun CoroutineScope.execute(i: Intent): Any = launch {
         delay(10)
-        ui.value = when (i) {
+        state.value = when (i) {
             is Intent.ViewTodo -> State.ShowTodo(i.todo)
             Intent.ReInit -> State.Init
         }

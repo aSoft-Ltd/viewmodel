@@ -1,13 +1,13 @@
 import CounterViewModel.Intent
 import kotlinx.coroutines.delay
 import logging.*
-import viewmodel.VModel
+import viewmodel.ViewModel
 import tz.co.asoft.asyncTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 /**
- * Give a [VModel] [CounterViewModel]
+ * Give a [ViewModel] [CounterViewModel]
  */
 class ViewModelIntentTest {
 

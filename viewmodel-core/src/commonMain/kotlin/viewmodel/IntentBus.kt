@@ -20,5 +20,5 @@ open class IntentBus<I> {
         INTENT_BUS.collect(collector)
     }
 
-    fun VModel<I, *>.observeIntentBus() = coroutineScope.launch { collect { post(it) } }
+    fun ViewModel<I, *>.observeIntentBus() = coroutineScope.launch { collect { post(it) } }
 }
