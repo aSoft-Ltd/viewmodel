@@ -1,6 +1,6 @@
 package viewmodel
 
-import kotlinx.coroutines.flow.Flow
+import live.Watcher
 import react.RBuilder
 import react.RProps
 import react.RState
@@ -8,8 +8,9 @@ import react.setState
 import tz.co.asoft.Component
 import viewmodel.VComponent.UIState
 
-abstract class VComponent<P : RProps, I, S, V : VModel<I, S>> : Component<P, UIState<S>> {
+abstract class VComponent<P : RProps, I, S, V : ViewModel<I, S>> : Component<P, UIState<S>> {
     abstract val viewModel: V
+    protected var watcher: Watcher<S>? = null
 
     class UIState<S>(var ui: S?) : RState
 
@@ -29,10 +30,14 @@ abstract class VComponent<P : RProps, I, S, V : VModel<I, S>> : Component<P, UIS
     }
 
     override fun componentDidMount() {
-        viewModel.ui.bind()
+        watcher = viewModel.state.watch {
+            setState { state = UIState(it) }
+        }
     }
 
-    fun Flow<S>.bind() = observe { setState { ui = it } }
+    override fun componentWillUnmount() {
+        watcher?.stop()
+    }
 
-    open fun post(i: I) = viewModel.post(i)
+    inline fun post(i: I) = viewModel.post(i)
 }
