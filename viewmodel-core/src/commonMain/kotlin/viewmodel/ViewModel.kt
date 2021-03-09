@@ -32,6 +32,7 @@ abstract class ViewModel<in I, S>(initialState: S, scope: CoroutineScope = MainS
     abstract fun CoroutineScope.execute(i: I): Any
 
     override fun onCleared() {
+        ui.stopAll()
         coroutineScope.cancel()
     }
 }
