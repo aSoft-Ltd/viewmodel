@@ -2,7 +2,7 @@ import CounterViewModel.Intent
 import CounterViewModel.State
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
-import tz.co.asoft.asyncTest
+import test.asyncTest
 import viewmodel.test
 import kotlin.test.Test
 import kotlin.test.assertEquals

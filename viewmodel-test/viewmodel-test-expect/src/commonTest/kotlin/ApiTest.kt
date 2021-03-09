@@ -2,10 +2,10 @@ import CounterViewModel.Intent
 import CounterViewModel.State
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
-import tz.co.asoft.asyncTest
-import tz.co.asoft.expect
+import test.asyncTest
+import expect.*
 import viewmodel.test
-import tz.co.asoft.toBeIn
+import viewmodel.toBeIn
 import kotlin.test.Test
 import kotlin.time.ExperimentalTime
 import kotlin.time.measureTime

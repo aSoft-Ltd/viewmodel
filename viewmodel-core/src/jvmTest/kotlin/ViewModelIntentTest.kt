@@ -7,7 +7,7 @@ import kotlinx.coroutines.test.setMain
 import logging.*
 import org.junit.Before
 import viewmodel.ViewModel
-import tz.co.asoft.asyncTest
+import test.asyncTest
 import java.util.concurrent.Executors
 import kotlin.test.AfterTest
 import kotlin.test.Test
