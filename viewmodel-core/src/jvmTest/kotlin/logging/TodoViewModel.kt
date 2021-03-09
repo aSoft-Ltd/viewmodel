@@ -21,7 +21,7 @@ class TodoViewModel : ViewModel<Intent, State>(State.Init) {
 
     override fun CoroutineScope.execute(i: Intent): Any = launch {
         delay(10)
-        state.value = when (i) {
+        ui.value = when (i) {
             is Intent.ViewTodo -> State.ShowTodo(i.todo)
             Intent.ReInit -> State.Init
         }

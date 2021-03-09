@@ -8,6 +8,22 @@ plugins {
 
 kotlin {
     multiplatformLib(forAndroid = true)
+    val isMac = System.getenv("MACHINE") == "mac"
+    val darwinTargets = if (isMac) listOf(
+        macosX64(),
+        iosArm64(),
+        iosArm32(),
+        iosX64(),
+        watchosArm32(),
+        watchosArm64(),
+        watchosX86(),
+        tvosArm64(),
+        tvosX64()
+    ) else emptyList()
+
+    val linuxTargets = listOf(
+        linuxX64()
+    )
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -17,16 +33,39 @@ kotlin {
             }
         }
 
-        val commonTest by getting {
-            dependencies {
-                api(asoft("test-coroutines", vers.asoft.test))
-            }
-        }
-
         val androidMain by getting {
             dependencies {
                 api("androidx.lifecycle:lifecycle-extensions:${vers.androidx.lifecycle}")
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-android:${vers.kotlinx.coroutines}")
+            }
+        }
+
+        val jvmTest by getting {
+            dependencies {
+                api(asoft("test-coroutines", vers.asoft.test))
+                api(kotlinx("coroutines-test", vers.kotlinx.coroutines))
+            }
+        }
+
+        val nativeMain by creating {
+            dependsOn(commonMain)
+        }
+
+        val nativeTest by creating {
+            dependsOn(nativeMain)
+        }
+
+        for (target in linuxTargets + darwinTargets) {
+            val main by target.compilations.getting {
+                defaultSourceSet {
+                    dependsOn(nativeMain)
+                }
+            }
+
+            val test by target.compilations.getting {
+                defaultSourceSet {
+                    dependsOn(main.defaultSourceSet)
+                }
             }
         }
     }
