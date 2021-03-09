@@ -1,3 +1,7 @@
+# 0.0.81 : 2021.02.09
+
+- Added native targets
+
 # 0.0.80 : 2021.02.07
 
 - Changed VModel to ViewModel
