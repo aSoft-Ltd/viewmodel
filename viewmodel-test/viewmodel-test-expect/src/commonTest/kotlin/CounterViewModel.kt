@@ -21,7 +21,7 @@ class CounterViewModel(val delay: Long) : ViewModel<Intent, State>(State(0)) {
         data class CountDown(val by: Int) : Intent()
     }
 
-    val countState get() = state.value.value
+    val countState get() = ui.value.value
 
     override fun CoroutineScope.execute(i: Intent) = when (i) {
         is Intent.CountUp -> countUp(i)
@@ -30,11 +30,11 @@ class CounterViewModel(val delay: Long) : ViewModel<Intent, State>(State(0)) {
 
     private fun CoroutineScope.countDown(i: Intent.CountDown) = launch {
         delay(delay)
-        state.value = State(value = state.value.value - i.by)
+        ui.value = State(value = ui.value.value - i.by)
     }
 
     private fun CoroutineScope.countUp(i: Intent.CountUp) = launch {
         delay(delay)
-        state.value = State(value = state.value.value + i.by)
+        ui.value = State(value = ui.value.value + i.by)
     }
 }

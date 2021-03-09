@@ -7,10 +7,26 @@ plugins {
 
 kotlin {
     multiplatformLib()
+    val isMac = System.getenv("MACHINE") == "mac"
+    val darwinTargets = if (isMac) listOf(
+        macosX64(),
+        iosArm64(),
+        iosArm32(),
+        iosX64(),
+        watchosArm32(),
+        watchosArm64(),
+        watchosX86(),
+        tvosArm64(),
+        tvosX64()
+    ) else emptyList()
+
+    val linuxTargets = listOf(
+        linuxX64()
+    )
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(asoft("either-test-expect", vers.asoft.duality))
+                api(asoft("expect-coroutines", vers.asoft.expect))
                 api(project(":viewmodel-test-core"))
             }
         }

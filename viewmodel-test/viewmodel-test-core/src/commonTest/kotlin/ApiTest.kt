@@ -2,7 +2,7 @@ import CounterViewModel.Intent
 import CounterViewModel.State
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
-import tz.co.asoft.asyncTest
+import test.asyncTest
 import viewmodel.test
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -65,7 +65,7 @@ class ApiTest {
 
                 launch { vm.test(Intent.CountDown(by = -1)) }
 
-                assertEquals(State(0), vm.state.value)
+                assertEquals(State(0), vm.ui.value)
             }
         }
         println("Took ${time.inMilliseconds} milli seconds")

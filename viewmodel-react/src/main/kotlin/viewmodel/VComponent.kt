@@ -30,7 +30,7 @@ abstract class VComponent<P : RProps, I, S, V : ViewModel<I, S>> : Component<P, 
     }
 
     override fun componentDidMount() {
-        watcher = viewModel.state.watch {
+        watcher = viewModel.ui.watch {
             setState { state = UIState(it) }
         }
     }

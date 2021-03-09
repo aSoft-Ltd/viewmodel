@@ -1,3 +1,5 @@
 package viewmodel
 
-actual typealias PlatformViewModel = androidx.lifecycle.ViewModel
+actual abstract class PlatformViewModel : androidx.lifecycle.ViewModel() {
+    protected actual open override fun onCleared() {}
+}

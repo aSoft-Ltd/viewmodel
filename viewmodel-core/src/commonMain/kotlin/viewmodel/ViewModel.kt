@@ -1,18 +1,16 @@
 package viewmodel
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.*
 import live.Live
 import logging.logger
 
-abstract class ViewModel<in I, S>(initialState: S) : PlatformViewModel() {
+abstract class ViewModel<in I, S>(initialState: S, scope: CoroutineScope = MainScope()) : PlatformViewModel() {
     internal val logger = logger(this::class.simpleName ?: "Anonymous ViewModel")
-    val state = Live(initialState)
-    open val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
+    val ui = Live(initialState)
+    open val coroutineScope = scope
 
     init {
-        state.watch { log("State at ${it?.toDetailedString}") }
+        ui.watch { log("State at ${it?.toDetailedString}") }
     }
 
     /**
@@ -32,4 +30,9 @@ abstract class ViewModel<in I, S>(initialState: S) : PlatformViewModel() {
     }
 
     abstract fun CoroutineScope.execute(i: I): Any
+
+    override fun onCleared() {
+        ui.stopAll()
+        coroutineScope.cancel()
+    }
 }
