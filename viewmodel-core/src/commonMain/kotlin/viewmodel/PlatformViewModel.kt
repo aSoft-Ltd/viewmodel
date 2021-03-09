@@ -1,3 +1,5 @@
 package viewmodel
 
-expect abstract class PlatformViewModel()
+expect abstract class PlatformViewModel() {
+    protected open fun onCleared()
+}

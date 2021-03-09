@@ -65,7 +65,7 @@ class ApiTest {
 
                 launch { vm.test(Intent.CountDown(by = -1)) }
 
-                assertEquals(State(0), vm.state.value)
+                assertEquals(State(0), vm.ui.value)
             }
         }
         println("Took ${time.inMilliseconds} milli seconds")

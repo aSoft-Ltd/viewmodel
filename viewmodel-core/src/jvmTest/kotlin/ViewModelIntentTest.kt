@@ -1,8 +1,15 @@
 import CounterViewModel.Intent
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.asCoroutineDispatcher
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.setMain
 import logging.*
+import org.junit.Before
 import viewmodel.ViewModel
 import tz.co.asoft.asyncTest
+import java.util.concurrent.Executors
+import kotlin.test.AfterTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -13,6 +20,13 @@ class ViewModelIntentTest {
 
     init {
         Logging.init(ConsoleAppender())
+    }
+
+    private val mainDispatcher = Executors.newSingleThreadExecutor().asCoroutineDispatcher()
+
+    @Before
+    fun setup() {
+        Dispatchers.setMain(mainDispatcher)
     }
 
     @Test
@@ -26,5 +40,11 @@ class ViewModelIntentTest {
         CounterViewModel.post(Intent.CountUp(2))
         delay(10)
         assertEquals(3, vm.countState)
+    }
+
+    @AfterTest
+    fun tearDown() {
+        Dispatchers.resetMain()
+        mainDispatcher.close()
     }
 }

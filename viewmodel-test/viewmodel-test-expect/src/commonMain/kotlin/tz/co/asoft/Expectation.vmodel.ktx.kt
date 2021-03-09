@@ -4,10 +4,10 @@ import viewmodel.ViewModel
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-fun <S> Expectation<ViewModel<*, S>>.toBeIn(expectedState: S) = assertEquals(expectedState, value.state.value)
+fun <S> Expectation<ViewModel<*, S>>.toBeIn(expectedState: S) = assertEquals(expectedState, value.ui.value)
 
 inline fun <reified E> Expectation<ViewModel<*, *>>.toBeIn(): E {
-    val state = value.state.value
+    val state = value.ui.value
     assertTrue(
         """
             
@@ -21,7 +21,7 @@ inline fun <reified E> Expectation<ViewModel<*, *>>.toBeIn(): E {
 }
 
 inline fun <reified L, reified R> Expectation<ViewModel<*, *>>.toBeInEither(): Either<L, R> {
-    val state = value.state.value
+    val state = value.ui.value
     assertTrue(
         """
     
