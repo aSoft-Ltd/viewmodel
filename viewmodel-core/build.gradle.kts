@@ -7,9 +7,10 @@ plugins {
 }
 
 kotlin {
-    multiplatformLib(forAndroid = true)
-    val isMac = System.getenv("MACHINE") == "mac"
-    val darwinTargets = if (isMac) listOf(
+    android { library() }
+    jvm { library() }
+    js(IR) { library() }
+    val darwinTargets = listOf(
         macosX64(),
         iosArm64(),
         iosArm32(),
@@ -19,7 +20,7 @@ kotlin {
         watchosX86(),
         tvosArm64(),
         tvosX64()
-    ) else emptyList()
+    )
 
     val linuxTargets = listOf(
         linuxX64()
@@ -73,5 +74,5 @@ kotlin {
 
 aSoftOSSLibrary(
     version = vers.asoft.viewmodel,
-    description = "A multiplatfrom library to handling viewmodel in an MVVMI architecture"
+    description = "A multiplatfrom library to handling viewmodel in an MVIVM architecture"
 )
