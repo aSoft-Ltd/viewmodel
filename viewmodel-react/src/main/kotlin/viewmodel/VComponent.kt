@@ -5,7 +5,7 @@ import react.RBuilder
 import react.RProps
 import react.RState
 import react.setState
-import tz.co.asoft.Component
+import reakt.Component
 import viewmodel.VComponent.UIState
 
 abstract class VComponent<P : RProps, I, S, V : ViewModel<I, S>> : Component<P, UIState<S>> {
