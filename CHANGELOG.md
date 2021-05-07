@@ -1,3 +1,11 @@
+# 0.0.91 : 2021.05.07
+
+- Fixed VComponent not rendering issues
+
+# 0.0.90 : 2021.05.02
+
+- Support kotlin 1.5.0
+
 # 0.0.81 : 2021.02.09
 
 - Added native targets
