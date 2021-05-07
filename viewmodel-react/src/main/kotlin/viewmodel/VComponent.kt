@@ -31,12 +31,13 @@ abstract class VComponent<P : RProps, I, S, V : ViewModel<I, S>> : Component<P, 
 
     override fun componentDidMount() {
         watcher = viewModel.ui.watch {
-            setState { state = UIState(it) }
+            setState(UIState(it))
         }
     }
 
     override fun componentWillUnmount() {
         watcher?.stop()
+        watcher = null
     }
 
     inline fun post(i: I) = viewModel.post(i)
