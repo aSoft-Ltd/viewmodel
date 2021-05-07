@@ -11,7 +11,7 @@ object vers {
     }
 
     object asoft {
-        val viewmodel = "0.0.90"
+        val viewmodel = "0.0.91"
         val live = "0.0.30"
         val logging = "0.0.30"
         val expect = "0.0.30"
