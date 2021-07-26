@@ -1,3 +1,10 @@
+# 0.0.92: 2021.07.26
+
+- Updated coroutines from 1.4.3 to 1.5.1-native-mt
+- Updated kotlin from 1.5.0 to 1.5.21
+- Updated builders from 1.3.30 to 1.3.40
+- Updated expect from 0.0.30 to 0.0.40
+
 # 0.0.91 : 2021.05.07
 
 - Fixed VComponent not rendering issues
