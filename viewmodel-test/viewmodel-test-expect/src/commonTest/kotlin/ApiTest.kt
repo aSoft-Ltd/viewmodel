@@ -3,9 +3,8 @@ import CounterViewModel.State
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import test.asyncTest
-import expect.*
+import viewmodel.expect
 import viewmodel.test
-import viewmodel.toBeIn
 import kotlin.test.Test
 import kotlin.time.ExperimentalTime
 import kotlin.time.measureTime

@@ -34,16 +34,21 @@ kotlin {
             }
         }
 
+        val commonTest by getting {
+            dependencies {
+                api(asoft("test-coroutines", vers.asoft.test))
+            }
+        }
+
         val androidMain by getting {
             dependencies {
-                api("androidx.lifecycle:lifecycle-extensions:${vers.androidx.lifecycle}")
+                api("androidx.lifecycle:lifecycle-viewmodel-ktx:${vers.androidx.lifecycle}")
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-android:${vers.kotlinx.coroutines}")
             }
         }
 
         val jvmTest by getting {
             dependencies {
-                api(asoft("test-coroutines", vers.asoft.test))
                 api(kotlinx("coroutines-test", vers.kotlinx.coroutines))
             }
         }
@@ -54,6 +59,7 @@ kotlin {
 
         val nativeTest by creating {
             dependsOn(nativeMain)
+            dependsOn(commonTest)
         }
 
         for (target in linuxTargets + darwinTargets) {

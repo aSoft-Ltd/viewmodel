@@ -14,6 +14,12 @@ kotlin {
                 api(project(":viewmodel-core"))
             }
         }
+
+        val test by getting {
+            dependencies {
+                implementation(asoft("test-core", vers.asoft.test))
+            }
+        }
     }
 }
 

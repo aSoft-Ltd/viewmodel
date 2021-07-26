@@ -7,7 +7,7 @@ object vers {
     }
 
     object androidx {
-        val lifecycle = "2.2.0"
+        val lifecycle = "2.4.0-alpha02"
     }
 
     object asoft {
