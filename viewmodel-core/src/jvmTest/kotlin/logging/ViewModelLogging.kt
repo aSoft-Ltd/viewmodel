@@ -1,6 +1,6 @@
 @file:Suppress("PackageDirectoryMismatch")
 
-import TodoViewModel.Intent
+import logging.TodoViewModel.Intent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asCoroutineDispatcher
 import kotlinx.coroutines.delay

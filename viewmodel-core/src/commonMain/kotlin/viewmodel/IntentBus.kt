@@ -6,9 +6,8 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-open class IntentBus<I> {
+open class IntentBus<I>(val coroutineScope: CoroutineScope = CoroutineScope(SupervisorJob())) {
     private val INTENT_BUS = MutableSharedFlow<I>(replay = 0)
-    val coroutineScope = CoroutineScope(SupervisorJob())
 
     fun post(i: I) {
         coroutineScope.launch {
