@@ -1,6 +1,8 @@
+@file:JvmMultifileClass
+
 package viewmodel
 
-import logging.*
+import kotlin.jvm.JvmMultifileClass
 
 internal val <T : Any> T.toDetailedString: String
     get() = when {

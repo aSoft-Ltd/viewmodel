@@ -1,3 +1,12 @@
+# 0.0.93: 2021.08.04
+- Reverted kotlin from 1.5.21 to 1.5.10
+- Updated builders from 1.3.40 to 1.3.42
+- Updated expect from 0.0.40 to 0.0.42
+- removed test from 1.1.32 to 1.1.40
+- Updated logging from 0.0.30 to 0.0.33
+- Updated live from 0.0.30 to 0.0.32
+- Reverted kotlinx coroutines from 1.5.1-native-mt to 1.5.0-native-mt
+
 # 0.0.92: 2021.07.26
 
 - Updated coroutines from 1.4.3 to 1.5.1-native-mt
