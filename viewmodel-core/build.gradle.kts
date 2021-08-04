@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.KotlinTarget
+
 plugins {
     id("com.android.library")
     kotlin("multiplatform")
@@ -10,21 +12,7 @@ kotlin {
     android { library() }
     jvm { library() }
     js(IR) { library() }
-    val darwinTargets = listOf(
-        macosX64(),
-        iosArm64(),
-        iosArm32(),
-        iosX64(),
-        watchosArm32(),
-        watchosArm64(),
-        watchosX86(),
-        tvosArm64(),
-        tvosX64()
-    )
-
-    val linuxTargets = listOf(
-        linuxX64()
-    )
+    val nativeTargets = nativeTargets(true)
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -34,32 +22,46 @@ kotlin {
             }
         }
 
+        val commonTest by getting {
+            dependencies {
+                api(asoft("expect-coroutines", vers.asoft.expect))
+            }
+        }
+
         val androidMain by getting {
             dependencies {
-                api("androidx.lifecycle:lifecycle-extensions:${vers.androidx.lifecycle}")
+                api("androidx.lifecycle:lifecycle-viewmodel-ktx:${vers.androidx.lifecycle}")
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-android:${vers.kotlinx.coroutines}")
             }
         }
 
+        val nonAndroidMain by creating {
+            dependsOn(commonMain)
+        }
+
+        val nonAndroidTest by creating {
+            dependsOn(nonAndroidMain)
+            dependsOn(commonTest)
+        }
+
+        val jvmMain by getting {
+            dependsOn(nonAndroidMain)
+        }
+
         val jvmTest by getting {
             dependencies {
-                api(asoft("test-coroutines", vers.asoft.test))
                 api(kotlinx("coroutines-test", vers.kotlinx.coroutines))
             }
         }
 
-        val nativeMain by creating {
-            dependsOn(commonMain)
+        val jsMain by getting {
+            dependsOn(nonAndroidMain)
         }
-
-        val nativeTest by creating {
-            dependsOn(nativeMain)
-        }
-
-        for (target in linuxTargets + darwinTargets) {
+        
+        for (target in nativeTargets) {
             val main by target.compilations.getting {
                 defaultSourceSet {
-                    dependsOn(nativeMain)
+                    dependsOn(nonAndroidMain)
                 }
             }
 

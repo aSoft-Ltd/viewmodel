@@ -27,13 +27,18 @@ class CounterViewModel : VModel<Intent, State>(State(0)) {
 
 ```kotlin
 dependencies {
-    implementation("tz.co.asoft:viewmodel-core:0.0.91") //
+    implementation("tz.co.asoft:viewmodel-core:0.0.93") //
     // or
-    implementation("tz.co.asoft:viewmodel-react:0.0.91") // if using intended to be used in kotlin/react 
+    implementation("tz.co.asoft:viewmodel-react:0.0.93") // if using intended to be used in kotlin/react 
 }
 ```
 
-[badge-maven]: https://img.shields.io/maven-central/v/tz.co.asoft/viewmodel-core/0.0.91?style=flat
+## Compatibility
+|ViewModel Version|Kotlin Version|
+|-----------------|--------------|
+|0.0.93           | 1.5.10       |
+
+[badge-maven]: https://img.shields.io/maven-central/v/tz.co.asoft/viewmodel-core/0.0.93?style=flat
 
 [badge-mpp]: https://img.shields.io/badge/kotlin-multiplatform-blue?style=flat
 
