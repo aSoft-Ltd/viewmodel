@@ -5,11 +5,15 @@ package logging
 import logging.TodoViewModel.Intent
 import logging.TodoViewModel.State
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import viewmodel.ViewModel
+import kotlin.jvm.JvmOverloads
 
-class TodoViewModel : ViewModel<Intent, State>(State.Init) {
+class TodoViewModel @JvmOverloads constructor(
+    scope: CoroutineScope = MainScope()
+) : ViewModel<Intent, State>(State.Init, scope) {
 
     sealed interface State {
         object Init : State

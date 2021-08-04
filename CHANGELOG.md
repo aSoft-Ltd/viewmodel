@@ -6,6 +6,7 @@
 - Updated logging from 0.0.30 to 0.0.33
 - Updated live from 0.0.30 to 0.0.32
 - Reverted kotlinx coroutines from 1.5.1-native-mt to 1.5.0-native-mt
+- Added a dsl to test intermediate states
 
 # 0.0.92: 2021.07.26
 
