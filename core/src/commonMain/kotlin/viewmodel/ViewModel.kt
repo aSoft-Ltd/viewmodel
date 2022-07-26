@@ -12,7 +12,7 @@ abstract class ViewModel<out S>(private val config: StatefulViewModelConfig<S>) 
     val ui: MutableLive<@UnsafeVariance S> = mutableLiveOf(config.state)
 
     init {
-        ui.watch(WatchMode.Eagerly) { log("State at ${it?.toDetailedString}") }
+        ui.watch(WatchMode.Eagerly, executor) { log("State at ${it?.toDetailedString}") }
     }
 
     override fun onCleared() {
