@@ -70,6 +70,6 @@ kotlin {
 }
 
 aSoftOSSLibrary(
-    version = asoft.versions.stdlib.get(),
+    version = asoft.versions.root.get(),
     description = "A multiplatfrom library for authoring viewmodel in an MVIVM architecture"
 )

@@ -41,6 +41,6 @@ kotlin {
 }
 
 aSoftOSSLibrary(
-    version = asoft.versions.stdlib.get(),
+    version = asoft.versions.root.get(),
     description = "Bindings for ViewModels object to be used with compose"
 )

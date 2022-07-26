@@ -26,6 +26,6 @@ kotlin {
 }
 
 aSoftOSSLibrary(
-    version = asoft.versions.stdlib.get(),
-    description = "Bindings for Live<S> object to be used with coroutines"
+    version = asoft.versions.root.get(),
+    description = "An extension of the viewmodel core to be used with coroutines"
 )

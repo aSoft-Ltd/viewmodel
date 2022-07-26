@@ -21,6 +21,6 @@ kotlin {
 }
 
 aSoftOSSLibrary(
-    version = asoft.versions.stdlib.get(),
+    version = asoft.versions.root.get(),
     description = "A multiplatfrom library to help test viewmodels with the expect library"
 )
