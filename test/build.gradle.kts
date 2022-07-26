@@ -11,7 +11,10 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(project(":viewmodel-core"))
+                api(projects.viewmodelCore)
+                api(asoft.expect.coroutines)
+                api(asoft.kotlinx.collections.atomic)
+                api(kotlinx.coroutines.test)
             }
         }
     }
@@ -19,5 +22,5 @@ kotlin {
 
 aSoftOSSLibrary(
     version = asoft.versions.stdlib.get(),
-    description = "A multiplatfrom library to help test viewmodels"
+    description = "A multiplatfrom library to help test viewmodels with the expect library"
 )

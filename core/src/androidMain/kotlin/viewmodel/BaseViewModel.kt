@@ -1,6 +1,6 @@
 package viewmodel
 
-actual abstract class BaseViewModel actual constructor(private val config: ViewModelConfig<*>) : androidx.lifecycle.ViewModel() {
+actual abstract class BaseViewModel actual constructor(private val config: ViewModelConfig) : androidx.lifecycle.ViewModel() {
 
     protected actual val logger get() = config.logger.with("source" to this::class.simpleName)
 

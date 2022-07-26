@@ -3,7 +3,7 @@ package viewmodel
 import koncurrent.Executor
 import logging.Logger
 
-expect abstract class BaseViewModel(config: ViewModelConfig<*>) {
+expect abstract class BaseViewModel(config: ViewModelConfig) {
 
     protected val logger: Logger
 

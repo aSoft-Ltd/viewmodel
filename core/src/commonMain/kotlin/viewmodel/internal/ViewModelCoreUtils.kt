@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 
-package viewmodel
+package viewmodel.internal
 
 import kotlin.jvm.JvmMultifileClass
 

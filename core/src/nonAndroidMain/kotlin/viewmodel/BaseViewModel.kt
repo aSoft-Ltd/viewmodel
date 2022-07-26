@@ -4,7 +4,7 @@ package viewmodel
 
 import kotlin.js.JsExport
 
-actual abstract class BaseViewModel actual constructor(private val config: ViewModelConfig<*>) {
+actual abstract class BaseViewModel actual constructor(private val config: ViewModelConfig) {
 
     protected actual val logger get() = config.logger.with("source" to this::class.simpleName)
 

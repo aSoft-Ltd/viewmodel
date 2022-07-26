@@ -12,14 +12,11 @@ import kotlin.js.JsName
 import kotlin.jvm.*
 
 @JsExport
-interface ViewModelConfig<out A> {
-    val api: A
+interface ViewModelConfig {
     val executor: Executor
     val logger: Logger
 
-    fun <R> map(transformer: (A) -> R): ViewModelConfig<R>
-
-    fun <S> of(state: S): StatefulViewModelConfig<A, S>
+    fun <S> of(state: S): StatefulViewModelConfig<S>
 
     companion object {
         @JvmField
@@ -29,16 +26,6 @@ interface ViewModelConfig<out A> {
         val DEFAULT_EXECUTOR = SynchronousExecutor
 
 
-        @JsName("ofService")
-        @JvmName("ofService")
-        @JvmOverloads
-        @JvmStatic
-        operator fun <A> invoke(
-            api: A,
-            executor: Executor = DEFAULT_EXECUTOR,
-            logger: Logger = DEFAULT_LOGGER
-        ): ViewModelConfig<A> = StatefulViewModelConfigImpl(api, Unit, executor, logger)
-
         @JsName("of")
         @JvmName("of")
         @JvmOverloads
@@ -46,6 +33,6 @@ interface ViewModelConfig<out A> {
         operator fun invoke(
             executor: Executor = DEFAULT_EXECUTOR,
             logger: Logger = DEFAULT_LOGGER
-        ): ViewModelConfig<*> = StatefulViewModelConfigImpl(Unit, Unit, executor, logger)
+        ): ViewModelConfig = StatefulViewModelConfig(Unit, executor, logger)
     }
 }

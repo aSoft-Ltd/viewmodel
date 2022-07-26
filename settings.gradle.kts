@@ -1,4 +1,6 @@
 pluginManagement {
+    enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
     repositories {
         google()
         jcenter()
@@ -6,20 +8,33 @@ pluginManagement {
         mavenCentral()
     }
 
-    resolutionStrategy {
-        eachPlugin {
-            if (requested.id.namespace == "com.android") {
-                useModule("com.android.tools.build:gradle:${requested.version}")
+    dependencyResolutionManagement {
+        versionCatalogs {
+            file("gradle/versions").listFiles().map {
+                it.nameWithoutExtension to it.absolutePath
+            }.forEach { (name, path) ->
+                create(name) { from(files(path)) }
             }
         }
     }
 }
 
-rootProject.name = "viewmodel"
-include(":viewmodel-core")
-include(":viewmodel-react")
+fun includeRoot(name: String, path: String) {
+    include(":$name")
+    project(":$name").projectDir = File(path)
+}
 
-include(":viewmodel-test-core")
-project(":viewmodel-test-core").projectDir = File("viewmodel-test/viewmodel-test-core")
-include(":viewmodel-test-expect")
-project(":viewmodel-test-expect").projectDir = File("viewmodel-test/viewmodel-test-expect")
+fun includeSubs(base: String, path: String = base, vararg subs: String) {
+    subs.forEach {
+        include(":$base-$it")
+        project(":$base-$it").projectDir = File("$path/$it")
+    }
+}
+
+val tmp = 0
+rootProject.name = "viewmodel"
+
+// dependencies
+includeSubs("live", "../live", "core", "coroutines", "react")
+
+includeSubs("viewmodel", ".", "core", "coroutines", "react", "test")

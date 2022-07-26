@@ -20,7 +20,7 @@ kotlin {
 
         val commonTest by getting {
             dependencies {
-                implementation(projects.viewmodelTestExpect)
+                implementation(projects.viewmodelTest)
             }
         }
 
