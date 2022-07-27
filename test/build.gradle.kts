@@ -12,6 +12,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api(projects.viewmodelCore)
+                api(projects.liveTest)
                 api(asoft.expect.coroutines)
                 api(asoft.kotlinx.collections.atomic)
                 api(kotlinx.coroutines.test)

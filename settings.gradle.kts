@@ -34,6 +34,6 @@ val tmp = 0
 rootProject.name = "viewmodel"
 
 // dependencies
-includeSubs("live", "../live", "core", "coroutines", "react")
+includeSubs("live", "../live", "core", "coroutines", "react","test")
 
 includeSubs("viewmodel", ".", "core", "coroutines", "react", "test")
