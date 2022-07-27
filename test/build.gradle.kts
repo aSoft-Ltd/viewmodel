@@ -11,8 +11,12 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                if (System.getenv("INCLUDE_BUILD") == "true") {
+                    api(asoft.live.test)
+                } else {
+                    api(project(":live-test"))
+                }
                 api(projects.viewmodelCore)
-                api(projects.liveTest)
                 api(asoft.expect.coroutines)
                 api(asoft.kotlinx.collections.atomic)
                 api(kotlinx.coroutines.test)

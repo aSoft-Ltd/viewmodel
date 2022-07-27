@@ -13,8 +13,12 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                if (System.getenv("INCLUDE_BUILD") == "true") {
+                    api(asoft.live.core)
+                } else {
+                    api(project(":live-core"))
+                }
                 api(asoft.logging.console)
-                api(projects.liveCore)
             }
         }
 

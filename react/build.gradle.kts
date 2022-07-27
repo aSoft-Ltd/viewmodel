@@ -10,8 +10,12 @@ kotlin {
     sourceSets {
         val main by getting {
             dependencies {
-                api(project(":viewmodel-core"))
-                api(project(":live-react"))
+                if (System.getenv("INCLUDE_BUILD") == "true") {
+                    api(asoft.live.react)
+                } else {
+                    api(project(":live-react"))
+                }
+                api(projects.viewmodelCore)
             }
         }
 
