@@ -30,7 +30,7 @@ fun includeSubs(base: String, path: String = base, vararg subs: String) {
     }
 }
 
-val tmp = 0
+val tmp = 1
 rootProject.name = "viewmodel"
 
 // dependencies
