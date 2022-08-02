@@ -30,13 +30,14 @@ fun includeSubs(base: String, path: String = base, vararg subs: String) {
     }
 }
 
-val tmp = 1
+val tmp = 2
 rootProject.name = "viewmodel"
 
 // dependencies
 if (System.getenv("INCLUDE_BUILD") == "true") {
     includeBuild("../live")
 } else {
+    println("including as subprojects")
     includeSubs("live", "../live", "core", "coroutines", "react", "test")
 }
 
