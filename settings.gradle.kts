@@ -38,7 +38,7 @@ if (System.getenv("INCLUDE_BUILD") == "true") {
     includeBuild("../live")
 } else {
     println("including as subprojects")
-    includeSubs("live", "../live", "core", "coroutines", "react", "test")
+    includeSubs("live", "../live", "core") // "coroutines", "react", "test"
 }
 
-includeSubs("viewmodel", ".", "core", "coroutines", "react", "test")
+includeSubs("viewmodel", ".", "core") //  "coroutines", "react", "test"

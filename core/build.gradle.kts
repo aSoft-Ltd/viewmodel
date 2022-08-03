@@ -22,31 +22,15 @@ kotlin {
             }
         }
 
-        val commonTest by getting {
-            dependencies {
-                implementation(projects.viewmodelTest)
-            }
-        }
-
         val androidMain by getting {
             dependencies {
                 api(androidx.lifecycle.viewmodel.ktx)
             }
         }
 
-        val androidTest by getting {
-            dependencies {
-                implementation(asoft.logging.test.android)
-            }
-        }
 
         val nonAndroidMain by creating {
             dependsOn(commonMain)
-        }
-
-        val nonAndroidTest by creating {
-            dependsOn(nonAndroidMain)
-            dependsOn(commonTest)
         }
 
         val jvmMain by getting {
@@ -61,12 +45,6 @@ kotlin {
             val main by target.compilations.getting {
                 defaultSourceSet {
                     dependsOn(nonAndroidMain)
-                }
-            }
-
-            val test by target.compilations.getting {
-                defaultSourceSet {
-                    dependsOn(main.defaultSourceSet)
                 }
             }
         }
