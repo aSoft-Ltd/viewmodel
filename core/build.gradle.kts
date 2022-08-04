@@ -23,6 +23,7 @@ kotlin {
         }
         val commonTest by getting {
             dependencies {
+                // Removing this dependency when composite builds are not yet supported will fail on CI
                 if (System.getenv("INCLUDE_BUILD") == "true") {
                     implementation(asoft.expect.coroutines)
                 } else {
