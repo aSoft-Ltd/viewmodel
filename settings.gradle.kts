@@ -35,9 +35,14 @@ rootProject.name = "viewmodel"
 
 // dependencies
 if (System.getenv("INCLUDE_BUILD") == "true") {
+    includeBuild("../functions")
+    includeBuild("../expect")
+    includeBuild("../koncurrent")
     includeBuild("../live")
 } else {
-    println("including as subprojects")
+    includeSubs("functions", "../functions", "core")
+    includeSubs("expect", "../expect", "core", "coroutines")
+    includeSubs("koncurrent-primitives", "../koncurrent/primitives", "core", "coroutines", "mock")
     includeSubs("live", "../live", "core") // "coroutines", "react", "test"
 }
 
