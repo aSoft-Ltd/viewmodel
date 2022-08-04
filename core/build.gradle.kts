@@ -21,6 +21,15 @@ kotlin {
                 api(asoft.logging.console)
             }
         }
+        val commonTest by getting {
+            dependencies {
+                if (System.getenv("INCLUDE_BUILD") == "true") {
+                    implementation(asoft.expect.coroutines)
+                } else {
+                    implementation(project(":expect-coroutines"))
+                }
+            }
+        }
 
         val androidMain by getting {
             dependencies {

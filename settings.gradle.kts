@@ -43,7 +43,8 @@ if (System.getenv("INCLUDE_BUILD") == "true") {
     includeSubs("functions", "../functions", "core")
     includeSubs("expect", "../expect", "core", "coroutines")
     includeSubs("koncurrent-primitives", "../koncurrent/primitives", "core", "coroutines", "mock")
-    includeSubs("live", "../live", "core") // "coroutines", "react", "test"
+    includeSubs("koncurrent-later", "../koncurrent/later", "core", "coroutines", "test")
+    includeSubs("live", "../live", "core", "coroutines", "react", "test")
 }
 
-includeSubs("viewmodel", ".", "core") //  "coroutines", "react", "test"
+includeSubs("viewmodel", ".", "core")
