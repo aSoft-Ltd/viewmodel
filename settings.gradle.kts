@@ -36,8 +36,7 @@ rootProject.name = "root"
 // dependencies
 includeSubs("functions", "../functions", "core")
 includeSubs("expect", "../expect", "core", "coroutines")
-includeSubs("koncurrent-primitives", "../koncurrent/primitives", "core", "coroutines", "mock")
-includeSubs("koncurrent-later", "../koncurrent/later", "core", "coroutines", "test")
-includeSubs("live", "../live", "core", "coroutines", "react", "test")
+includeSubs("koncurrent-primitives", "../koncurrent/primitives", "core", "mock")
+includeSubs("live", "../live", "core")
 
 includeSubs("viewmodel", ".", "core")
