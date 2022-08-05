@@ -31,20 +31,13 @@ fun includeSubs(base: String, path: String = base, vararg subs: String) {
 }
 
 val tmp = 2
-rootProject.name = "viewmodel"
+rootProject.name = "root"
 
 // dependencies
-if (System.getenv("INCLUDE_BUILD") == "true") {
-    includeBuild("../functions")
-    includeBuild("../expect")
-    includeBuild("../koncurrent")
-    includeBuild("../live")
-} else {
-    includeSubs("functions", "../functions", "core")
-    includeSubs("expect", "../expect", "core", "coroutines")
-    includeSubs("koncurrent-primitives", "../koncurrent/primitives", "core", "coroutines", "mock")
-    includeSubs("koncurrent-later", "../koncurrent/later", "core", "coroutines", "test")
-    includeSubs("live", "../live", "core", "coroutines", "react", "test")
-}
+includeSubs("functions", "../functions", "core")
+includeSubs("expect", "../expect", "core", "coroutines")
+includeSubs("koncurrent-primitives", "../koncurrent/primitives", "core", "coroutines", "mock")
+includeSubs("koncurrent-later", "../koncurrent/later", "core", "coroutines", "test")
+includeSubs("live", "../live", "core", "coroutines", "react", "test")
 
 includeSubs("viewmodel", ".", "core")

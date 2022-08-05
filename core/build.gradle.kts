@@ -14,22 +14,14 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                if (System.getenv("INCLUDE_BUILD") == "true") {
-                    api(asoft.live.core)
-                } else {
-                    api(project(":live-core"))
-                }
+                api(project(":live-core"))
+
                 api(asoft.logging.console)
             }
         }
         val commonTest by getting {
             dependencies {
-                // Removing this dependency when composite builds are not yet supported will fail on CI
-                if (System.getenv("INCLUDE_BUILD") == "true") {
-                    implementation(asoft.expect.coroutines)
-                } else {
-                    implementation(project(":expect-coroutines"))
-                }
+                implementation(project(":expect-coroutines"))
             }
         }
 
