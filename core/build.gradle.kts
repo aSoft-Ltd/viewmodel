@@ -16,14 +16,16 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(project(":live-core"))
-
+                api(projects.liveCore)
+                api(kotlinx.serialization.json)
+                api(projects.cacheApi)
+                api(projects.cacheMock)
                 api(asoft.logging.console)
             }
         }
         val commonTest by getting {
             dependencies {
-                implementation(project(":expect-coroutines"))
+                implementation(projects.expectCoroutines)
             }
         }
 

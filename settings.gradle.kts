@@ -36,7 +36,9 @@ rootProject.name = "asoft"
 // dependencies
 includeSubs("functions", "../functions", "core")
 includeSubs("expect", "../expect", "core", "coroutines")
-includeSubs("koncurrent-primitives", "../koncurrent/primitives", "core", "mock")
+includeSubs("koncurrent-primitives", "../koncurrent/primitives", "core", "coroutines", "mock")
+includeSubs("koncurrent-later", "../koncurrent/later", "core", "coroutines", "test")
 includeSubs("live", "../live", "core")
+includeSubs("cache", "../cache", "api", "file", "test", "mock")
 
 includeSubs("viewmodel", ".", "core")

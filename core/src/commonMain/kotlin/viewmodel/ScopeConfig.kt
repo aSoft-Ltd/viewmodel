@@ -2,8 +2,10 @@
 
 package viewmodel
 
+import cache.Cache
 import koncurrent.Executor
 import koncurrent.SynchronousExecutor
+import kotlinx.serialization.StringFormat
 import logging.ConsoleAppender
 import logging.Logger
 import viewmodel.internal.ScopeConfigImpl
@@ -27,7 +29,9 @@ interface ScopeConfig<out A> : ViewModelConfig {
         operator fun <A> invoke(
             api: A,
             executor: Executor = ViewModelConfig.DEFAULT_EXECUTOR,
-            logger: Logger = ViewModelConfig.DEFAULT_LOGGER
-        ): ScopeConfig<A> = ScopeConfigImpl(api, executor, logger)
+            logger: Logger = ViewModelConfig.DEFAULT_LOGGER,
+            cache: Cache = ViewModelConfig.DEFAULT_CACHE,
+            codec: StringFormat = ViewModelConfig.DEFAULT_CODEC
+        ): ScopeConfig<A> = ScopeConfigImpl(api, executor, logger, cache, codec)
     }
 }
