@@ -10,9 +10,10 @@ kotlin {
     jvm { library() }
     js(IR) { library() }
 //    val nativeTargets = nativeTargets(true)
-    val nativeTargets = listOf(
-        macosArm64(), macosX64(), iosArm64(), iosX64(), linuxX64()
-    )
+//    val nativeTargets = listOf(
+//        macosArm64(), macosX64(), iosArm64(), iosX64(), linuxX64()
+//    )
+    val nativeTargets = linuxTargets(true)
     sourceSets {
         val commonMain by getting {
             dependencies {
