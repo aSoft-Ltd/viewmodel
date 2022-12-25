@@ -7,7 +7,7 @@ import live.*
 import viewmodel.internal.toDetailedString
 import kotlin.js.JsExport
 
-abstract class ViewModel<out S>(private val config: StatefulViewModelConfig<S>) : BaseViewModel(config) {
+abstract class ViewModel<out S>(config: StatefulViewModelConfig<S>) : BaseViewModel(config) {
 
     val ui: MutableLive<@UnsafeVariance S> = mutableLiveOf(config.state)
 

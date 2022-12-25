@@ -22,6 +22,8 @@ kotlin {
                 api(projects.cacheApi)
                 api(projects.cacheMock)
                 api(asoft.logging.console)
+                api(projects.krestApi)
+                api(projects.kaseCore)
             }
         }
         val commonTest by getting {
