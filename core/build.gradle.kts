@@ -21,7 +21,7 @@ kotlin {
                 api(kotlinx.serialization.json)
                 api(projects.cacheApi)
                 api(projects.cacheMock)
-                api(asoft.logging.console)
+                api(projects.lexiConsole)
                 api(projects.krestApi)
                 api(projects.kaseCore)
             }
